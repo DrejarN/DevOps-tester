@@ -1,0 +1,30 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {},
+    "parameters": {
+      "testUri": {
+        "defaultValue": "https://status.azure.com/en-us/status/",
+        "type": "String"
+      }
+    },
+    "triggers": {
+      "HTTP": {
+        "type": "Http",
+        "inputs": {
+          "method": "GET",
+          "uri": "https://status.azure.com/en-us/status/",
+          "headers": {
+            "Content-Type": "application/json"
+          }
+        },
+        "recurrence": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    },
+    "contentVersion": "1.0.0.0"
+  },
+  "parameters": {}
+}
